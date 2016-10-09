@@ -5,9 +5,12 @@
  */
 package Controller;
 
+import GUI_FlightSystem.EstadoGeneralVuelos;
 import GUI_FlightSystem.Login;
 import GUI_FlightSystem.MenuPrincipal;
 import GUI_FlightSystem.Registration;
+import java.sql.ResultSet;
+import negocio.EstadoGeneralVuelosN;
 //import javax.swing.JOptionPane;
 import negocio.LoginN;
 import negocio.RegistrationN;
@@ -24,6 +27,9 @@ public class FlightReservationSystem {
     private LoginN loginN;
     
     private MenuPrincipal menuPpal;
+    private EstadoGeneralVuelos estadoGralVuelos;
+    private EstadoGeneralVuelosN estadoGralVuelosN;
+    
     private Conexion connection;
     private String username;
     private Registration registrationPanel;
@@ -62,8 +68,8 @@ public class FlightReservationSystem {
     }
     
     public void createRegistration() {
-        registrationPanel = new Registration(this);
         registrationN = new RegistrationN(connection.getConnection());
+        registrationPanel = new Registration(this);
     }
     
     public void goBackLogin() {
@@ -86,6 +92,19 @@ public class FlightReservationSystem {
 
     public void createReservaVuelos() {
         
+    }
+
+    public void createEstadoGeneralVuelos() {
+        estadoGralVuelosN = new EstadoGeneralVuelosN(connection.getConnection());
+        estadoGralVuelos = new EstadoGeneralVuelos(this);
+    }
+
+    public String[][] consultaEstadoGralVuelos() {
+        return estadoGralVuelosN.actualizar();
+    }
+
+    public void goBackMenu() {
+        menuPpal.visible(true);
     }
 
     

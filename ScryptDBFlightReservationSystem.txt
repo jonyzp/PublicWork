@@ -59,6 +59,6 @@ CREATE TABLE Flight(
 CREATE TABLE Ticket(
 	flight_no serial NOT NULL REFERENCES Flight (flight_no),
 	passenger_id text NOT NULL REFERENCES traveler (id_pass),
-	no_seat serial NOT NULL,
-	PRIMARY KEY(flight_no, passenger_id, no_seat)
+	no_seat integer NOT NULL,
+	PRIMARY KEY(flight_no, passenger_id)
 );

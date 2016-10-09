@@ -40,16 +40,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblubicaciones = new javax.swing.JLabel();
+        lblMenuPpal = new javax.swing.JLabel();
         jButtonConsulta = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        jButtonLogout = new javax.swing.JButton();
         jButtonReservaVuelo = new javax.swing.JButton();
+        jButtonEstadoVuelo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblubicaciones.setFont(new java.awt.Font("L M Roman Demi10", 1, 36)); // NOI18N
-        lblubicaciones.setForeground(new java.awt.Color(1, 1, 1));
-        lblubicaciones.setText("Menu Principal");
+        lblMenuPpal.setFont(new java.awt.Font("L M Roman Demi10", 1, 48)); // NOI18N
+        lblMenuPpal.setForeground(new java.awt.Color(1, 1, 1));
+        lblMenuPpal.setText("Menu Principal");
 
         jButtonConsulta.setText("Consulta de Vuelos");
         jButtonConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +59,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton17.setText("Logout");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLogout.setText("Logout");
+        jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                jButtonLogoutActionPerformed(evt);
             }
         });
 
@@ -72,38 +73,46 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButtonEstadoVuelo.setText("Estado de los Vuelos");
+        jButtonEstadoVuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEstadoVueloActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(551, 551, 551))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(440, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jButtonConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125)
-                        .addComponent(jButtonReservaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(445, 445, 445)
-                        .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(177, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblMenuPpal, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(403, 403, 403))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButtonEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonReservaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(384, 384, 384))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonReservaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(lblMenuPpal, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jButtonConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jButtonReservaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButtonEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,23 +123,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonConsultaActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         flightSystem.goBackLogin();
         this.setVisible(false);
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     private void jButtonReservaVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservaVueloActionPerformed
         flightSystem.createReservaVuelos();
         this.setVisible(false);
     }//GEN-LAST:event_jButtonReservaVueloActionPerformed
 
+    private void jButtonEstadoVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEstadoVueloActionPerformed
+        flightSystem.createEstadoGeneralVuelos();
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonEstadoVueloActionPerformed
 
-    
+public void visible(boolean bool) {
+        this.setVisible(bool);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButtonConsulta;
+    private javax.swing.JButton jButtonEstadoVuelo;
+    private javax.swing.JButton jButtonLogout;
     private javax.swing.JButton jButtonReservaVuelo;
-    private javax.swing.JLabel lblubicaciones;
+    private javax.swing.JLabel lblMenuPpal;
     // End of variables declaration//GEN-END:variables
+
 }

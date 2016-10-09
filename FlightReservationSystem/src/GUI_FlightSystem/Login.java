@@ -110,7 +110,6 @@ public class Login extends javax.swing.JFrame {
         jButton3.setBounds(630, 310, 90, 30);
 
         lblTitle.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(1, 1, 1));
         lblTitle.setText("BIENVENIDO");
         jPanel1.add(lblTitle);
         lblTitle.setBounds(270, 30, 350, 60);
