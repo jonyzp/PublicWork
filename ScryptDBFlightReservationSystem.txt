@@ -1,0 +1,63 @@
+/********** Flight Reservation System *************/
+/*              BASES DE DATOS POSTGRESQL
+ *****************************************************/
+
+                                    
+
+/*CREACIÓN DE LA BASE DE DATOS 'flight_reservation_system' */
+
+drop database if exists flight_reservation_system;
+
+create database flight_reservation_system;
+
+/*Creación de Tablas*/
+
+CREATE TABLE Admin(
+	id_admin text PRIMARY KEY NOT NULL,
+	name_admin text NOT NULL,
+	password_admin text NOT NULL
+);
+
+
+CREATE TABLE Airbus(
+	no_airbus serial PRIMARY KEY NOT NULL,
+	capacity smallint NOT NULL
+);
+
+CREATE TABLE Airport(
+	id_airport serial PRIMARY KEY NOT NULL,
+	city text NOT NULL,
+	name_airport text NOT NULL
+);
+
+CREATE TABLE Traveler(
+	id_pass text NOT NULL,
+	name text NOT NULL,
+	city text NOT NULL,
+	email text NOT NULL,
+	credit_card_no text,
+	login_name text NOT NULL,
+	password_traveler text NOT NULL,
+	PRIMARY KEY(id_pass)
+);
+
+
+CREATE TABLE Flight(
+	flight_no serial PRIMARY KEY NOT NULL,
+	airbus_no serial NOT NULL REFERENCES Airbus (no_airbus),
+	capacity smallint,
+	from_airport_code serial NOT NULL REFERENCES Airport (id_airport),
+	destination_airport_code serial NOT NULL REFERENCES Airport (id_airport),
+	depart_date date NOT NULL,
+	arrive_date date NOT NULL,
+	depart_time time NOT NULL,
+	arrive_time time NOT NULL,
+	fare money NOT NULL
+);
+
+CREATE TABLE Ticket(
+	flight_no serial NOT NULL REFERENCES Flight (flight_no),
+	passenger_id text NOT NULL REFERENCES traveler (id_pass),
+	no_seat serial NOT NULL,
+	PRIMARY KEY(flight_no, passenger_id, no_seat)
+);

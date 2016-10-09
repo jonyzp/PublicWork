@@ -1,0 +1,54 @@
+
+/*   CREAR TRIGGERS:   */
+
+create trigger t_AfterAddingFlight after insert or update of flight_no on flight execute Procedure addCapacity();
+
+create trigger t_BeforeAddingTicket before insert or update of flight_no or passenger or no_seat on ticket execute Procedure validateTicket();
+
+
+ELIMINAR TRIGGER:
+
+drop trigger if exists t_BeforeAddingTicket on ticket restrict;
+
+PROCEDURES:
+
+create or replace function addCapacity()
+RETURNS trigger AS $t_AfterAddingFlight$
+	BEGIN
+		update flight set capacity=(select airbus.capacity from airbus where (select airbus_no from flight order by flight_no DESC limit 1)=airbus.no_airbus )
+									       where flight.flight_no = (select flight_no from flight order by flight_no DESC limit 1);
+		RETURN NULL;
+	END;
+$t_AfterAddingFlight$ LANGUAGE plpgsql;
+
+
+
+create or replace function validateTicket()
+RETURNS trigger AS $t_BeforeAddingTicket$
+	BEGIN
+		update facturasdeventa set fechaCreacion=(select localtimestamp(1)) where facturasdeventa.numero_factura = (select numero_factura from facturasdeventa order by numero_factura DESC limit 1);
+		RETURN NULL;
+	END;
+$t_AddLastUpdateOnFacturas$ LANGUAGE plpgsql;
+
+
+
+
+
+
+create or replace function lastDateAdded(text)
+AS $$
+begin
+	NEW.mDate = CURRENT_TIMESTAMP;
+	return NEW;
+end;
+
+create or replace function setDate(text, text, text)
+AS $$
+begin
+	NEW.mDate = CURRENT_TIMESTAMP;
+	return NEW;
+end;
+
+
+update $1 set lastUpdate = GETDATE() where $1.$2 = $3;
