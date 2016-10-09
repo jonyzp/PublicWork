@@ -9,10 +9,10 @@ INSERT INTO airbus (capacity) values (15);
 INSERT INTO airbus (capacity) values (1);
 
 INSERT INTO traveler values ('AO328591', 'Alberto', 'Bogota', 'arestrep@correo.edu.co', 18, '00324675320', 'arestrep', '1234');
-INSERT INTO traveler values ('087320', 'David', 'Medellin', 'david@correo.edu.co', 17, null , 'david', '1234');
-INSERT INTO traveler values ('094537', 'Elena', 'Medellin', 'elenita@correo.edu.co', 21, '00435333' , 'elena', '1234');
-INSERT INTO traveler values ('023122', 'Francisco', 'Cali', 'cisco@correo.edu.co', 41, '003443326576' , 'cisco', '1234');
-INSERT INTO traveler values ('004561', 'Mariana', 'Medellin', 'marimed@correo.edu.co', 31, null , 'marimed', '1234');
+INSERT INTO traveler values ('AO328554', 'David', 'Medellin', 'david@correo.edu.co', 17, null , 'david', '1234');
+INSERT INTO traveler values ('AO353241', 'Elena', 'Medellin', 'elenita@correo.edu.co', 21, '00435333' , 'elena', '1234');
+INSERT INTO traveler values ('AO432243', 'Francisco', 'Cali', 'cisco@correo.edu.co', 41, '003443326576' , 'cisco', '1234');
+INSERT INTO traveler values ('AO434248', 'Mariana', 'Medellin', 'marimed@correo.edu.co', 31, null , 'marimed', '1234');
 
 
 INSERT INTO airport (city, name_airport) VALUES ('rionegro', 'jose maria');
@@ -26,12 +26,13 @@ VALUES (1, 2, 3, '2016/07/12', '2016/07/12', '8:00', '12:00', 300000 );
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
 VALUES (2, 2, 4, '2016/07/12', '2016/07/12', '14:00', '17:00', 500000 );
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
-VALUES (3, 2, 3, '2016/07/12', '2016/07/12', '8:00', '12:00', 300000 );
+VALUES (3, 2, 3, '2016/07/12', '2016/07/12', '8:00', '12:00', 400000 );
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
 VALUES (8, 4, 2, '2016/07/20', '2016/07/21', '21:00', '03:00', 1000000 );
 
-INSERT INTO ticket (flight_no, passenger_id) values (1, 'AO328591'); 	
-INSERT INTO ticket (flight_no, passenger_id) values (2, '004561');
-INSERT INTO ticket (flight_no, passenger_id) values (3, '023122');
-INSERT INTO ticket (flight_no, passenger_id) values (4, '087320');
+INSERT INTO ticket values (2, 'AO328591', 1); 	
+INSERT INTO ticket values (4, 'AO328554', 2);
+INSERT INTO ticket values (1, 'AO353241', 4);
+INSERT INTO ticket values (3, 'AO432243', 1);
+INSERT INTO ticket values (4, 'AO434248', 3);
 

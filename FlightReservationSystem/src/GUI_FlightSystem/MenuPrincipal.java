@@ -119,7 +119,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultaActionPerformed
-        flightSystem.createReservaVuelos();
+        flightSystem.createConsultaVuelos();
         this.setVisible(false);
     }//GEN-LAST:event_jButtonConsultaActionPerformed
 

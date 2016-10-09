@@ -31,7 +31,7 @@ public class Login extends javax.swing.JFrame {
         flightSystem = frs;
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        accionDePasarAPassword(jTextField1);
+        accionDePasarAPassword(jTextFieldUserName);
         accionDeHundirBoton(jPasswordField1);
         this.setVisible(true);
         
@@ -48,16 +48,16 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabelUser = new javax.swing.JLabel();
+        jLabelPassWord = new javax.swing.JLabel();
+        jTextFieldUserName = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
+        jButtonRegister = new javax.swing.JButton();
+        lblBienvenida = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
-        lblTitle1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("User Authentication");
@@ -65,64 +65,64 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Username");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(420, 180, 120, 29);
+        jLabelUser.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelUser.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelUser.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelUser.setText("Username");
+        jPanel1.add(jLabelUser);
+        jLabelUser.setBounds(420, 180, 120, 29);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Password");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(420, 220, 130, 29);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(590, 180, 180, 30);
+        jLabelPassWord.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelPassWord.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPassWord.setText("Password");
+        jPanel1.add(jLabelPassWord);
+        jLabelPassWord.setBounds(420, 220, 130, 29);
+        jPanel1.add(jTextFieldUserName);
+        jTextFieldUserName.setBounds(590, 180, 180, 30);
         jPanel1.add(jPasswordField1);
         jPasswordField1.setBounds(590, 220, 180, 30);
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLogin.setText("Login");
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(630, 270, 90, 30);
+        jPanel1.add(jButtonLogin);
+        jButtonLogin.setBounds(620, 270, 120, 30);
 
-        jButton2.setText("Exit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExit.setText("Salir");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonExitActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(630, 350, 90, 30);
+        jPanel1.add(jButtonExit);
+        jButtonExit.setBounds(620, 350, 120, 30);
 
-        jButton3.setText("Register");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegister.setText("Registrarse");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonRegisterActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(630, 310, 90, 30);
+        jPanel1.add(jButtonRegister);
+        jButtonRegister.setBounds(620, 310, 120, 30);
+
+        lblBienvenida.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
+        lblBienvenida.setText("BIENVENIDO");
+        jPanel1.add(lblBienvenida);
+        lblBienvenida.setBounds(270, 30, 350, 60);
 
         lblTitle.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
-        lblTitle.setText("BIENVENIDO");
+        lblTitle.setText("SISTEMA DE RESERVA DE VUELOS");
         jPanel1.add(lblTitle);
-        lblTitle.setBounds(270, 30, 350, 60);
+        lblTitle.setBounds(270, 100, 820, 58);
 
-        lblTitle1.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
-        lblTitle1.setText("SISTEMA DE RESERVA DE VUELOS");
-        jPanel1.add(lblTitle1);
-        lblTitle1.setBounds(270, 100, 820, 58);
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/airbusFrontal.jpg"))); // NOI18N
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 0, 1350, 820);
+        jLabelBackGround.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/airbusFrontal.jpg"))); // NOI18N
+        jPanel1.add(jLabelBackGround);
+        jLabelBackGround.setBounds(10, 0, 1350, 820);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,8 +140,8 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String un = jTextField1.getText();
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        String un = jTextFieldUserName.getText();
         String pw = jPasswordField1.getText();
         if(un.equals("") || pw.equals("")){
             JOptionPane.showMessageDialog(jPanel1, "Nombre de Usuario o password vacíos",
@@ -150,6 +150,7 @@ public class Login extends javax.swing.JFrame {
         }
         if(flightSystem.validateUser(un, pw)){
             flightSystem.createMenuPpal();
+            this.cleanData();
             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(jPanel1, "Nombre de Usuario o password inválido",
@@ -158,22 +159,22 @@ public class Login extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         flightSystem.exit(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonExitActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
         flightSystem.createRegistration();
         this.setVisible(false);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     
     
     /* Método para pasar del username a pw con solo un enter    */ 
     private void accionDePasarAPassword(JTextField jTxtF1) {
-        jTextField1.addActionListener(new ActionListener() {
+        jTextFieldUserName.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     jPasswordField1.requestFocusInWindow();    
@@ -194,7 +195,7 @@ public class Login extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                jButton1ActionPerformed(e);
+                jButtonLoginActionPerformed(e);
             }
         };
         jp.addActionListener(action);
@@ -204,21 +205,22 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(bool);
     }
     
+    private void cleanData() {
+        this.jTextFieldUserName.setText("");
+        this.jPasswordField1.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonLogin;
+    private javax.swing.JButton jButtonRegister;
+    private javax.swing.JLabel jLabelBackGround;
+    private javax.swing.JLabel jLabelPassWord;
+    private javax.swing.JLabel jLabelUser;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldUserName;
+    private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JLabel lblTitle1;
     // End of variables declaration//GEN-END:variables
-
-    
-
-    
 }

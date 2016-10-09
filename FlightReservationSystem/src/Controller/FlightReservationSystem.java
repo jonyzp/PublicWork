@@ -5,15 +5,17 @@
  */
 package Controller;
 
+import GUI_FlightSystem.ConsultaVuelos;
 import GUI_FlightSystem.EstadoGeneralVuelos;
 import GUI_FlightSystem.Login;
 import GUI_FlightSystem.MenuPrincipal;
 import GUI_FlightSystem.Registration;
-import java.sql.ResultSet;
+
+import negocio.ConsultaVuelosN;
 import negocio.EstadoGeneralVuelosN;
-//import javax.swing.JOptionPane;
 import negocio.LoginN;
 import negocio.RegistrationN;
+
 import utilities.Conexion;
 
 
@@ -29,18 +31,21 @@ public class FlightReservationSystem {
     private MenuPrincipal menuPpal;
     private EstadoGeneralVuelos estadoGralVuelos;
     private EstadoGeneralVuelosN estadoGralVuelosN;
+    private ConsultaVuelos consultaVuelos;
     
     private Conexion connection;
     private String username;
     private Registration registrationPanel;
     private RegistrationN registrationN;
+    private ConsultaVuelosN consultaVuelosN;
     
     public FlightReservationSystem(){
+        login = new Login(this);
         if(tryConnection("postgres", "EAFIT1234*")){
-            login = new Login(this);
             loginN = new LoginN(connection.getConnection());
+        }else{
+            System.out.println("No se ha podido acceder a la base de datos.");
         }
-        else System.out.println("No se ha podido acceder a la base de datos.");
     }
     
     
@@ -83,11 +88,13 @@ public class FlightReservationSystem {
     public boolean userRegistration(String name, String passport, String city, 
             String email, String userName, String passWord, 
             String age, String creditCard) throws Exception {
-        return registrationN.userRegistration(name, passport, city, email, userName, passWord, age, creditCard);
+        return registrationN.userRegistration(name, passport, city, 
+                email, userName, passWord, age, creditCard);
     }
     
     public void createConsultaVuelos() {
-        
+        consultaVuelos = new ConsultaVuelos(this);
+        consultaVuelosN = new ConsultaVuelosN(connection.getConnection());
     }
 
     public void createReservaVuelos() {
@@ -105,6 +112,14 @@ public class FlightReservationSystem {
 
     public void goBackMenu() {
         menuPpal.visible(true);
+    }
+
+    public String[][] consultarVuelosHora(String ciudadOrigen, String ciudadDestino) {
+        return consultaVuelosN.consultarVuelosHora(ciudadOrigen,ciudadDestino);
+    }
+
+    public String[][] consultarVuelosTarifa(String ciudadOrigen, String ciudadDestino) {
+        return consultaVuelosN.consultarVuelosTarifa(ciudadOrigen,ciudadDestino);
     }
 
     

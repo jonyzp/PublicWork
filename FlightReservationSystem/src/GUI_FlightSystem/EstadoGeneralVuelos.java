@@ -171,7 +171,7 @@ public class EstadoGeneralVuelos extends javax.swing.JFrame {
     
     public void actualizarTabla() {
         resultArray = flightSystem.consultaEstadoGralVuelos();
-        for(int row = 0; row < 3; row++){
+        for(int row = 0; row < resultArray.length; row++){
             for(int col = 0; col < 10; col++){
                 jTable1.setValueAt(resultArray[row][col], row, col);
             }
