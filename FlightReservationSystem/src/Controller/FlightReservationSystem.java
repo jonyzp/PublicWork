@@ -74,8 +74,18 @@ public class FlightReservationSystem {
         FlightReservationSystem fs = new FlightReservationSystem();
     }
 
-    public boolean userRegistration(String name, String passport, String city, String email, String userName, String passWord, String creditCard) throws Exception {
-        return registrationN.userRegistration(name, passport, city, email, userName, passWord, creditCard);
+    public boolean userRegistration(String name, String passport, String city, 
+            String email, String userName, String passWord, 
+            String age, String creditCard) throws Exception {
+        return registrationN.userRegistration(name, passport, city, email, userName, passWord, age, creditCard);
+    }
+    
+    public void createConsultaVuelos() {
+        
+    }
+
+    public void createReservaVuelos() {
+        
     }
 
     

@@ -56,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        lblTitle1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,16 +109,21 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jButton3);
         jButton3.setBounds(630, 310, 90, 30);
 
-        lblTitle.setFont(new java.awt.Font("L M Roman Demi10", 1, 36)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(1, 1, 1));
-        lblTitle.setText("Bienvenido al Sistema de Reserva de Vuelos");
+        lblTitle.setText("BIENVENIDO");
         jPanel1.add(lblTitle);
-        lblTitle.setBounds(420, 20, 520, 60);
+        lblTitle.setBounds(270, 30, 350, 60);
+
+        lblTitle1.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
+        lblTitle1.setText("SISTEMA DE RESERVA DE VUELOS");
+        jPanel1.add(lblTitle1);
+        lblTitle1.setBounds(270, 100, 820, 58);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/airbusFrontal.jpg"))); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 10, 1350, 570);
+        jLabel5.setBounds(10, 0, 1350, 820);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,6 +216,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTitle1;
     // End of variables declaration//GEN-END:variables
 
     

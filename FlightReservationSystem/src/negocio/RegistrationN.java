@@ -23,8 +23,8 @@ public class RegistrationN {
     }
 
     public boolean userRegistration(String name, String passport, String city, 
-            String email, String userName, String passWord, String creditCard) 
-            throws Exception{
+            String email, String userName, String passWord, String age,
+            String creditCard) throws Exception{
         
         ResultSet rs;
         PreparedStatement pst;
@@ -35,20 +35,27 @@ public class RegistrationN {
             pst.setString(1, userName);
             rs = pst.executeQuery();
             while(rs.next()){
-                System.out.println("Error");
                 throw new Exception("Nombre de usuario ya está en uso");
                 
             }
             
+            short age_int;
+            try{
+                age_int = Short.parseShort(age); 
+            }catch(NumberFormatException nmbrEx){
+                throw new Exception("Edad incorrecta.");
+            }
+            
             pst = connection.prepareStatement
-            ("INSERT INTO traveler values (?,?,?,?,?,?,?)");
+            ("INSERT INTO traveler values (?,?,?,?,?,?,?,?)");
             pst.setString(1, passport);
             pst.setString(2, name);
             pst.setString(3, city);
             pst.setString(4, email);
-            pst.setString(5, creditCard);
-            pst.setString(6, userName);
-            pst.setString(7, passWord);
+            pst.setShort(5, age_int);
+            pst.setString(6, creditCard);
+            pst.setString(7, userName);
+            pst.setString(8, passWord);
             int result = pst.executeUpdate();
             return result != 0;
 

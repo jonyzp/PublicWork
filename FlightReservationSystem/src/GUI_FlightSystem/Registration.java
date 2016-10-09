@@ -55,6 +55,8 @@ public class Registration extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1366, 700));
@@ -119,6 +121,11 @@ public class Registration extends javax.swing.JFrame {
 
         txtUserName.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel12.setText("Edad*");
+
+        txtAge.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,7 +165,11 @@ public class Registration extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-                                        .addComponent(jPasswordField1))))
+                                        .addComponent(jPasswordField1)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -192,6 +203,10 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCreditCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +219,7 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,16 +237,18 @@ public class Registration extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String userName = txtUserName.getText();
         String passWord = jPasswordField1.getText();  
+        String age = txtAge.getText();
         String creditCard = txtCreditCard.getText();
         
         if(name.equals("") || passport.equals("") || city.equals("") || 
-                email.equals("") || userName.equals("") || passWord.equals("")){
+                email.equals("") || userName.equals("") || passWord.equals("")
+                || age.equals("")){
                 JOptionPane.showMessageDialog(null, 
                         "Faltan Datos para poder completar el registro.");
                 return;
         }
         try{
-            if(flightSystem.userRegistration(name, passport, city, email, userName, passWord, creditCard)){
+            if(flightSystem.userRegistration(name, passport, city, email, userName, passWord, age, creditCard)){
                 JOptionPane.showMessageDialog(null, "Registro Exitoso!");
                 cleanData();
             }else{
@@ -259,6 +276,7 @@ public class Registration extends javax.swing.JFrame {
         txtUserName.setText("");
         jPasswordField1.setText("");
         txtCreditCard.setText("");
+        txtAge.setText("");
     }
     
     /**
@@ -330,6 +348,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -337,6 +356,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCreditCard;
     private javax.swing.JTextField txtEmail;

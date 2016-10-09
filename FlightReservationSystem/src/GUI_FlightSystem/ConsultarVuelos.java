@@ -15,14 +15,14 @@ import javax.swing.JFrame;
  * @author JONATHAN
  * 
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class ConsultarVuelos extends javax.swing.JFrame {
     
     private Controller.FlightReservationSystem flightSystem;
     
     /**
      * Constructor
      */
-    public MenuPrincipal(Controller.FlightReservationSystem frs) {
+    public ConsultarVuelos(Controller.FlightReservationSystem frs) {
         initComponents();
         
         flightSystem = frs;
@@ -49,7 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         lblubicaciones.setFont(new java.awt.Font("L M Roman Demi10", 1, 36)); // NOI18N
         lblubicaciones.setForeground(new java.awt.Color(1, 1, 1));
-        lblubicaciones.setText("Menu Principal");
+        lblubicaciones.setText("Consulta de Vuelos");
 
         jButtonConsulta.setText("Consulta de Vuelos");
         jButtonConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -88,16 +88,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(125, 125, 125)
                         .addComponent(jButtonReservaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(445, 445, 445)
-                        .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(419, 419, 419)
+                        .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(177, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(20, 20, 20)
                 .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonReservaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))

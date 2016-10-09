@@ -35,6 +35,7 @@ CREATE TABLE Traveler(
 	name text NOT NULL,
 	city text NOT NULL,
 	email text NOT NULL,
+	age smallint NOT NULL,
 	credit_card_no text,
 	login_name text NOT NULL,
 	password_traveler text NOT NULL,
