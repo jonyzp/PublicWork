@@ -10,13 +10,10 @@ import GUI_FlightSystem.EstadoGeneralVuelos;
 import GUI_FlightSystem.Login;
 import GUI_FlightSystem.MenuPrincipal;
 import GUI_FlightSystem.Registration;
+import GUI_FlightSystem.ReservaVuelo;
 
-import negocio.ConsultaVuelosN;
-import negocio.EstadoGeneralVuelosN;
-import negocio.LoginN;
-import negocio.RegistrationN;
 
-import utilities.Conexion;
+import Model.Conexion;
 
 
 /**
@@ -26,22 +23,25 @@ import utilities.Conexion;
 
 public class FlightReservationSystem {
     private Login login;
-    private LoginN loginN;
-    
     private MenuPrincipal menuPpal;
     private EstadoGeneralVuelos estadoGralVuelos;
-    private EstadoGeneralVuelosN estadoGralVuelosN;
-    private ConsultaVuelos consultaVuelos;
-    
+    private ConsultaVuelos consultaVuelos;    
     private Conexion connection;
-    private String username;
     private Registration registrationPanel;
+    private ReservaVuelo reservaVuelos;
+    
     private RegistrationN registrationN;
     private ConsultaVuelosN consultaVuelosN;
+    private LoginN loginN;
+    private EstadoGeneralVuelosN estadoGralVuelosN;
+    private ReservaVueloN reservaVuelosN;
+    
+    private String idTraveler;
+    
     
     public FlightReservationSystem(){
         login = new Login(this);
-        if(tryConnection("postgres", "EAFIT1234*")){
+        if(tryConnection()){
             loginN = new LoginN(connection.getConnection());
         }else{
             System.out.println("No se ha podido acceder a la base de datos.");
@@ -50,10 +50,9 @@ public class FlightReservationSystem {
     
     
     
-    public boolean tryConnection(String user, String pass){
+    public boolean tryConnection(){
         try{
-            connection = new Conexion(user, pass);
-            this.username = user;
+            connection = new Conexion();
             return true;
         }catch(Exception e){
             //pass
@@ -69,6 +68,7 @@ public class FlightReservationSystem {
     }
 
     public boolean validateUser(String un, String pw) {
+        this.idTraveler = loginN.getTravelerPassportByUserName(un);
         return loginN.validateUser(un,pw);
     }
     
@@ -93,13 +93,15 @@ public class FlightReservationSystem {
     }
     
     public void createConsultaVuelos() {
-        consultaVuelos = new ConsultaVuelos(this);
         consultaVuelosN = new ConsultaVuelosN(connection.getConnection());
+        consultaVuelos = new ConsultaVuelos(this);
     }
 
     public void createReservaVuelos() {
-        
+        reservaVuelosN = new ReservaVueloN(connection.getConnection());
+        reservaVuelos = new ReservaVuelo(this);
     }
+    
 
     public void createEstadoGeneralVuelos() {
         estadoGralVuelosN = new EstadoGeneralVuelosN(connection.getConnection());
@@ -121,6 +123,24 @@ public class FlightReservationSystem {
     public String[][] consultarVuelosTarifa(String ciudadOrigen, String ciudadDestino) {
         return consultaVuelosN.consultarVuelosTarifa(ciudadOrigen,ciudadDestino);
     }
+
+    public String[][] consultarEstadoVuelo(String buscaEsteID) {
+        return consultaVuelosN.consultarEstadoVuelo(buscaEsteID);
+    }
+
+    public String[] consultarIdVuelos() {
+        return reservaVuelosN.consultarIdVuelos();
+    }
+
+    public boolean createTicket(String idVuelo, String noAsiento) throws Exception{
+        return reservaVuelosN.createTicket(idTraveler, idVuelo, noAsiento);
+    }
+
+    public String[][] getTicketByPassport() {
+        return reservaVuelosN.getTicketByPassport(idTraveler);
+    }
+
+    
 
     
 

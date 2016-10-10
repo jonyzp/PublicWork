@@ -2,13 +2,16 @@
 /*              BASES DE DATOS POSTGRESQL
  *****************************************************/
 
-                                    
-
 /*CREACIÓN DE LA BASE DE DATOS 'flight_reservation_system' */
 
 drop database if exists flight_reservation_system;
 
 create database flight_reservation_system;
+
+/* Conectarse a la base de datos*/
+
+\c flight_reservation_system
+
 
 /*Creación de Tablas*/
 

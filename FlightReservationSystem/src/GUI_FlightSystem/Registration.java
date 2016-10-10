@@ -47,8 +47,8 @@ public class Registration extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtCreditCard = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButtonLimpiar = new javax.swing.JButton();
+        jButtonAtras = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -90,20 +90,20 @@ public class Registration extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel8.setText("Panel de Registro");
 
-        jButton6.setText("Limpiar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonLimpiarActionPerformed(evt);
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
-        jButton7.setMaximumSize(new java.awt.Dimension(50, 40));
-        jButton7.setMinimumSize(new java.awt.Dimension(50, 40));
-        jButton7.setPreferredSize(new java.awt.Dimension(58, 34));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
+        jButtonAtras.setMaximumSize(new java.awt.Dimension(50, 40));
+        jButtonAtras.setMinimumSize(new java.awt.Dimension(50, 40));
+        jButtonAtras.setPreferredSize(new java.awt.Dimension(58, 34));
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButtonAtrasActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class Registration extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(465, 465, 465)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
@@ -173,7 +173,7 @@ public class Registration extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(106, 106, 106)))))
                 .addContainerGap(688, Short.MAX_VALUE))
         );
@@ -181,7 +181,7 @@ public class Registration extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8)))
@@ -221,7 +221,7 @@ public class Registration extends javax.swing.JFrame {
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(217, 217, 217))
         );
@@ -259,14 +259,14 @@ public class Registration extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         cleanData();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         flightSystem.goBackLogin();
         this.setVisible(false);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     public void cleanData() {
         txtNombre.setText("");
@@ -278,73 +278,10 @@ public class Registration extends javax.swing.JFrame {
         txtCreditCard.setText("");
         txtAge.setText("");
     }
-    
-    /**
-
-    public void actualizar() {
-        rs = pn.actualizarTabla();
-        actualizarTabla(rs);
-    }
-
-    public void busqueda(String nombreProveedor) {
-        rs = pn.buscarProveedores(nombreProveedor);
-        actualizarTabla(rs);
-    }
-
-    public void actualizarTabla(ResultSet rs) {
-        try {
-            limpiarTabla();
-            int i = 0;
-            while (rs.next()) {
-                jTable1.setValueAt(rs.getString(1), i, 0);
-                jTable1.setValueAt(rs.getString(2), i, 1);
-                jTable1.setValueAt(rs.getString(3), i, 2);
-                jTable1.setValueAt(rs.getString(4), i, 3);
-                jTable1.setValueAt(rs.getString(5), i, 4);
-                jTable1.setValueAt(rs.getString(6), i, 5);
-                i++;
-            }
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
-    }
-
-    public void limpiarTabla() {
-        for (int i = 0; i < jTable1.getRowCount(); i++) {
-            for (int j = 0; j < jTable1.getColumnCount(); j++) {
-                jTable1.setValueAt("", i, j);
-            }
-        }
-    }
-
-    private void cargarDetalles() {
-        ResultSet rs = pn.cargarDetalle();
-        try {
-            while (rs.next()) {
-                cbxDetalle.addItem(rs.getString(1));
-            }
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
-
-    }
-
-    private void cargarCiudades() {
-        ResultSet rs = pn.cargarCiudades();
-        try {
-            while (rs.next()) {
-                cbxCiudad.addItem(rs.getString(1));
-            }
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
-
-    }
-    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButtonAtras;
+    private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

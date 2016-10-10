@@ -34,5 +34,4 @@ INSERT INTO ticket values (2, 'AO328591', 1);
 INSERT INTO ticket values (4, 'AO328554', 2);
 INSERT INTO ticket values (1, 'AO353241', 4);
 INSERT INTO ticket values (3, 'AO432243', 1);
-INSERT INTO ticket values (4, 'AO434248', 3);
 

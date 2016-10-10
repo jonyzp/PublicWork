@@ -31,6 +31,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
         flightSystem = frs;
 
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        this.jTextFieldBuscarXid.setEditable(false);
         this.setVisible(true);
     }
 
@@ -54,6 +55,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButtonAtras = new javax.swing.JButton();
+        jTextFieldBuscarXid = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +77,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
             }
         });
 
-        jButtonConsultaEstadoVuelo.setText("Consulta el Estado de un vuelo");
+        jButtonConsultaEstadoVuelo.setText("Consulta el Estado de los Vuelos por ID:");
         jButtonConsultaEstadoVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConsultaEstadoVueloActionPerformed(evt);
@@ -176,9 +178,12 @@ public class ConsultaVuelos extends javax.swing.JFrame {
                             .addComponent(jTextFieldCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCiudadDestino)))
                     .addComponent(jButtonConsultaTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConsultaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(430, 430, 430))
+                    .addComponent(jButtonConsultaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldBuscarXid, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(379, 379, 379))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -208,7 +213,9 @@ public class ConsultaVuelos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButtonConsultaTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBuscarXid, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(335, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -228,13 +235,21 @@ public class ConsultaVuelos extends javax.swing.JFrame {
 
     private void jButtonConsultaTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultaTarifaActionPerformed
         if(!this.getInputFromUser()) return;
-        this.actualizarTabla(flightSystem.consultarVuelosTarifa(ciudadOrigen, ciudadDestino));
+        String [][] resultArray;
+        resultArray = flightSystem.consultarVuelosTarifa(ciudadOrigen, ciudadDestino);
+        this.actualizarTabla(resultArray);
 
     }//GEN-LAST:event_jButtonConsultaTarifaActionPerformed
 
     private void jButtonConsultaEstadoVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultaEstadoVueloActionPerformed
-        if(!this.validateTextField()) return;
-        System.out.println("Por implementar");
+        if(jTextFieldBuscarXid.isEditable()){
+            String buscaEsteID = jTextFieldBuscarXid.getText();
+            String [][] resultArray;
+            resultArray = flightSystem.consultarEstadoVuelo(buscaEsteID);
+            this.actualizarTabla(resultArray);
+        }else{
+            jTextFieldBuscarXid.setEditable(true);
+        }
         
     }//GEN-LAST:event_jButtonConsultaEstadoVueloActionPerformed
 
@@ -259,6 +274,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
     }
     
     public void actualizarTabla(String [][] resultArray) {
+        this.cleanTable();
         int rows = resultArray.length;
         try{
             for(int row = 0; row < rows; row++){
@@ -271,6 +287,14 @@ public class ConsultaVuelos extends javax.swing.JFrame {
         }
     }
     
+    private void cleanTable() {
+        for(int row = 0; row < jTable1.getRowCount(); row++){
+                for(int col = 0; col < 11; col++){
+                    jTable1.setValueAt("", row, col);
+                }
+            }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonConsultaEstadoVuelo;
@@ -279,11 +303,14 @@ public class ConsultaVuelos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextFieldBuscarXid;
     private javax.swing.JTextField jTextFieldCiudadDestino;
     private javax.swing.JTextField jTextFieldCiudadOrigen;
     private javax.swing.JLabel lblCiudadDestino;
     private javax.swing.JLabel lblubicaciones;
     // End of variables declaration//GEN-END:variables
+
+    
 
     
 }

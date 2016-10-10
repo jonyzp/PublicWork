@@ -149,6 +149,13 @@ public class Login extends javax.swing.JFrame {
             return;
         }
         if(flightSystem.validateUser(un, pw)){
+            JOptionPane.showMessageDialog(jPanel1, "Bienvenido a nuestro sistema\n"
+                    + "Servicios que ofrecemos :\n"
+                    + "Consulta de Vuelos\n"
+                    + "Reserva de Vuelos\n"
+                    + "Información del estado de los vuelos.\n"
+                    + "\nDisfrute de la experiencia. Estamos para ayudarle",
+                "Servicios Ofrecidos", JOptionPane.INFORMATION_MESSAGE); 
             flightSystem.createMenuPpal();
             this.cleanData();
             this.setVisible(false);
