@@ -22,16 +22,16 @@ INSERT INTO airport (city, name_airport) VALUES ('cali', 'alfonso bonilla');
 INSERT INTO airport (city, name_airport) VALUES ('pereira', 'matecaña');
 
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
-VALUES (1, 2, 3, '2016/07/12', '2016/07/12', '8:00', '12:00', 300000 );
+VALUES (1, 2, 3, '2016/06/12', '2016/06/12', '8:00', '12:00', 300000 );
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
 VALUES (2, 2, 4, '2016/07/12', '2016/07/12', '14:00', '17:00', 500000 );
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
-VALUES (3, 2, 3, '2016/07/12', '2016/07/12', '8:00', '12:00', 400000 );
+VALUES (3, 2, 3, '2016/08/12', '2016/08/12', '8:00', '12:00', 400000 );
 INSERT INTO flight (airbus_no, from_airport_code, destination_airport_code, depart_date, arrive_date, depart_time, arrive_time, fare) 
 VALUES (8, 4, 2, '2016/07/20', '2016/07/21', '21:00', '03:00', 1000000 );
 
 INSERT INTO ticket values (2, 'AO328591', 1); 	
-INSERT INTO ticket values (4, 'AO328554', 2);
+INSERT INTO ticket values (4, 'AO328554', 1);
 INSERT INTO ticket values (1, 'AO353241', 4);
 INSERT INTO ticket values (3, 'AO432243', 1);
 

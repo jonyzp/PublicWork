@@ -5,9 +5,6 @@
  */
 package GUI_FlightSystem;
 
-//import java.sql.Connection;
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -44,24 +41,20 @@ public class ConsultaVuelos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblubicaciones = new javax.swing.JLabel();
         jButtonConsultaHora = new javax.swing.JButton();
         jButtonConsultaTarifa = new javax.swing.JButton();
         jButtonConsultaEstadoVuelo = new javax.swing.JButton();
+        jButtonAtras = new javax.swing.JButton();
         jTextFieldCiudadOrigen = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jTextFieldCiudadDestino = new javax.swing.JTextField();
+        jTextFieldBuscarXid = new javax.swing.JTextField();
+        lblVuelos = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblCiudadDestino = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButtonAtras = new javax.swing.JButton();
-        jTextFieldBuscarXid = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblubicaciones.setFont(new java.awt.Font("L M Roman Demi10", 1, 36)); // NOI18N
-        lblubicaciones.setForeground(new java.awt.Color(1, 1, 1));
-        lblubicaciones.setText("Consulta de Vuelos");
 
         jButtonConsultaHora.setText("Consulta de Vuelos Por Hora");
         jButtonConsultaHora.addActionListener(new java.awt.event.ActionListener() {
@@ -77,12 +70,26 @@ public class ConsultaVuelos extends javax.swing.JFrame {
             }
         });
 
-        jButtonConsultaEstadoVuelo.setText("Consulta el Estado de los Vuelos por ID:");
+        jButtonConsultaEstadoVuelo.setText("Consulta el Estado de un Vuelo por su ID:");
         jButtonConsultaEstadoVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConsultaEstadoVueloActionPerformed(evt);
             }
         });
+
+        jButtonAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
+        jButtonAtras.setMaximumSize(new java.awt.Dimension(50, 40));
+        jButtonAtras.setMinimumSize(new java.awt.Dimension(50, 40));
+        jButtonAtras.setPreferredSize(new java.awt.Dimension(58, 34));
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtrasActionPerformed(evt);
+            }
+        });
+
+        lblVuelos.setFont(new java.awt.Font("L M Roman Demi10", 1, 36)); // NOI18N
+        lblVuelos.setForeground(new java.awt.Color(1, 1, 1));
+        lblVuelos.setText("Consulta de Vuelos");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ciudad de Origen");
@@ -148,47 +155,37 @@ public class ConsultaVuelos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButtonAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
-        jButtonAtras.setMaximumSize(new java.awt.Dimension(50, 40));
-        jButtonAtras.setMinimumSize(new java.awt.Dimension(50, 40));
-        jButtonAtras.setPreferredSize(new java.awt.Dimension(58, 34));
-        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtrasActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(381, 381, 381)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCiudadDestino)))
-                    .addComponent(jButtonConsultaTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConsultaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(lblVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCiudadDestino)))
+                            .addComponent(jButtonConsultaTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonConsultaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldBuscarXid, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldBuscarXid, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(379, 379, 379))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +193,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblubicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -216,12 +213,9 @@ public class ConsultaVuelos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonConsultaEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldBuscarXid, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(335, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(358, 358, 358)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(128, Short.MAX_VALUE)))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,8 +253,10 @@ public class ConsultaVuelos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private boolean validateTextField() {
-        if(jTextFieldCiudadOrigen.getText().equals("") || jTextFieldCiudadDestino.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Faltan Datos para realizar la consulta.");
+        if(jTextFieldCiudadOrigen.getText().equals("") || 
+                jTextFieldCiudadDestino.getText().equals("")){
+            JOptionPane.showMessageDialog(null, 
+                    "Faltan Datos para realizar la consulta.");
             return false;
         }
         return true;
@@ -278,7 +274,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
         int rows = resultArray.length;
         try{
             for(int row = 0; row < rows; row++){
-                for(int col = 0; col < 10; col++){
+                for(int col = 0; col < 11; col++){
                     jTable1.setValueAt(resultArray[row][col], row, col);
                 }
             }
@@ -307,7 +303,7 @@ public class ConsultaVuelos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCiudadDestino;
     private javax.swing.JTextField jTextFieldCiudadOrigen;
     private javax.swing.JLabel lblCiudadDestino;
-    private javax.swing.JLabel lblubicaciones;
+    private javax.swing.JLabel lblVuelos;
     // End of variables declaration//GEN-END:variables
 
     

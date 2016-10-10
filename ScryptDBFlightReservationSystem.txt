@@ -56,8 +56,7 @@ CREATE TABLE Flight(
 	arrive_date date NOT NULL,
 	depart_time time NOT NULL,
 	arrive_time time NOT NULL,
-	fare money NOT NULL,
-	nmbrSeatsEnable smallint
+	fare money NOT NULL
 );
 
 CREATE TABLE Ticket(

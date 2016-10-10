@@ -15,6 +15,7 @@ import javax.swing.Action;
 /*Demás imports para la GUI*/
 import java.awt.*;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -29,6 +30,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
         flightSystem = frs;
+        
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         accionDePasarAPassword(jTextFieldUserName);
@@ -121,20 +124,24 @@ public class Login extends javax.swing.JFrame {
 
         jLabelBackGround.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/airbusFrontal.jpg"))); // NOI18N
+        jLabelBackGround.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelBackGround.setMaximumSize(new java.awt.Dimension(2000, 2000));
         jPanel1.add(jLabelBackGround);
-        jLabelBackGround.setBounds(10, 0, 1350, 820);
+        jLabelBackGround.setBounds(0, 10, 1350, 820);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1336, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1332, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,12 +151,13 @@ public class Login extends javax.swing.JFrame {
         String un = jTextFieldUserName.getText();
         String pw = jPasswordField1.getText();
         if(un.equals("") || pw.equals("")){
-            JOptionPane.showMessageDialog(jPanel1, "Nombre de Usuario o password vacíos",
+            JOptionPane.showMessageDialog(jPanel1, 
+                    "Nombre de Usuario o password vacíos",
                 "Authentication Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if(flightSystem.validateUser(un, pw)){
-            JOptionPane.showMessageDialog(jPanel1, "Bienvenido a nuestro sistema\n"
+            JOptionPane.showMessageDialog(jPanel1,"Bienvenido a nuestro sistema\n"
                     + "Servicios que ofrecemos :\n"
                     + "Consulta de Vuelos\n"
                     + "Reserva de Vuelos\n"
@@ -160,7 +168,8 @@ public class Login extends javax.swing.JFrame {
             this.cleanData();
             this.setVisible(false);
         }else{
-            JOptionPane.showMessageDialog(jPanel1, "Nombre de Usuario o password inválido",
+            JOptionPane.showMessageDialog(jPanel1, 
+                    "Nombre de Usuario o password inválido",
                 "Authentication Error", JOptionPane.ERROR_MESSAGE); 
             return;
         }
@@ -187,8 +196,6 @@ public class Login extends javax.swing.JFrame {
                     jPasswordField1.requestFocusInWindow();    
                 }
             });
-        
-        
     }
     
     /*

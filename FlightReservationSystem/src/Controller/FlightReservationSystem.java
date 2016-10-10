@@ -18,6 +18,8 @@ import Model.Conexion;
 
 /**
  *
+ *  Clase Controlador principal
+ * 
  * @author JONATHAN
  */
 
@@ -80,10 +82,6 @@ public class FlightReservationSystem {
     public void goBackLogin() {
         login.visible(true);
     }
-    
-    public static void main(String[] args) {        
-        FlightReservationSystem fs = new FlightReservationSystem();
-    }
 
     public boolean userRegistration(String name, String passport, String city, 
             String email, String userName, String passWord, 
@@ -140,9 +138,7 @@ public class FlightReservationSystem {
         return reservaVuelosN.getTicketByPassport(idTraveler);
     }
 
-    
-
-    
-
-    
+    public static void main(String[] args) {        
+        FlightReservationSystem fs = new FlightReservationSystem();
+    }
 }

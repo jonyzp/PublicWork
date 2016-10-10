@@ -37,7 +37,7 @@ public class EstadoGeneralVuelosN {
             + "f.depart_time, f.arrive_time, f.fare FROM airport a, flight f "
             + "where a.id_airport=f.from_airport_code) as t1 "
             + "WHERE air.id_airport=t1.destination_airport_code "
-            + "and t1.flight_no=rs.flight_no;");
+            + "and t1.flight_no=rs.flight_no");
             resultSet = pst.executeQuery();
             int i = 0;
             while(resultSet.next()){

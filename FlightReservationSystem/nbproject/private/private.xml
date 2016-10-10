@@ -4,14 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/GUI_FlightSystem/MenuPrincipal.java</file>
-            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/negocio/EstadoGeneralVuelosN.java</file>
-            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/GUI_FlightSystem/Registration.java</file>
             <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/GUI_FlightSystem/ConsultaVuelos.java</file>
-            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/negocio/ConsultaVuelosN.java</file>
-            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/negocio/RegistrationN.java</file>
-            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/Controller/FlightReservationSystem.java</file>
+            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/Controller/EstadoGeneralVuelosN.java</file>
+            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/Controller/ReservaVueloN.java</file>
+            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/Controller/ConsultaVuelosN.java</file>
             <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/GUI_FlightSystem/Login.java</file>
             <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/GUI_FlightSystem/EstadoGeneralVuelos.java</file>
+            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/GUI_FlightSystem/ReservaVuelo.java</file>
+            <file>file:/C:/Users/JONATHAN/Documents/TECH/PublicWork/FlightReservationSystem/src/Model/Conexion.java</file>
         </group>
     </open-files>
 </project-private>

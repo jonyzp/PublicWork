@@ -44,7 +44,8 @@ public class ReservaVueloN {
         return resultArray;
     }
 
-    public boolean createTicket(String idTraveler, String idVuelo, String noAsiento)throws Exception{
+    public boolean createTicket(String idTraveler, String idVuelo, 
+            String noAsiento)throws Exception{
         
         ResultSet rs;
         PreparedStatement pst;
@@ -87,7 +88,7 @@ public class ReservaVueloN {
             rs = pst.executeQuery();
             while(rs.next()){
                 int capacity = Integer.parseInt(rs.getString(1));
-                if(noSeat > capacity){
+                if(noSeat > capacity || noSeat < 1){
                     throw new Exception("Este asiento sobrepasa la capacidad");
                 }
             }
@@ -109,16 +110,19 @@ public class ReservaVueloN {
     }
 
     public String[][] getTicketByPassport(String idTraveler) {
-        String [][] resultArray = new String [40][3];
+        String [][] resultArray = new String [40][11];
         try {
             ResultSet resultSet;        
             PreparedStatement pst = connection.prepareStatement
-            ("SELECT * FROM ticket WHERE passenger_id=?");
+            ("SELECT t.*, f.airbus_no, f.from_airport_code, "
+            + "f.destination_airport_code, f.depart_date, f.depart_time, "
+            + "f.arrive_date, f.arrive_time, f.fare FROM ticket t, flight f "
+            + "WHERE t.passenger_id=? and f.flight_no=t.flight_no ");
             pst.setString(1, idTraveler);
             resultSet = pst.executeQuery();
             int i = 0;
             while(resultSet.next()){
-                for(int col=0, rsNmbr=1; col < 3; col++, rsNmbr++){
+                for(int col=0, rsNmbr=1; col < 11; col++, rsNmbr++){
                     resultArray[i][col] = resultSet.getString(rsNmbr);
                 }
                 i++;

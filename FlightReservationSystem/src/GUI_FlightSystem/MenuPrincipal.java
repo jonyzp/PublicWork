@@ -5,9 +5,6 @@
  */
 package GUI_FlightSystem;
 
-//import java.sql.Connection;
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
 import javax.swing.JFrame;
 
 /**

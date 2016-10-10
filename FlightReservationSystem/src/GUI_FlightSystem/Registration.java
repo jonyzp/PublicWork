@@ -248,7 +248,8 @@ public class Registration extends javax.swing.JFrame {
                 return;
         }
         try{
-            if(flightSystem.userRegistration(name, passport, city, email, userName, passWord, age, creditCard)){
+            if(flightSystem.userRegistration(name, passport, city, email, 
+                    userName, passWord, age, creditCard)){
                 JOptionPane.showMessageDialog(null, "Registro Exitoso!");
                 cleanData();
             }else{
